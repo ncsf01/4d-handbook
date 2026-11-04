@@ -1,177 +1,260 @@
-{% extends "base.html" %}
-
-{% block titulo %}Manual do Iniciante em 4D - Contato{% endblock %}
-
-{% block conteudo %}
-    <section class="hero text-white py-5">
-        <div class="container">
-            <div class="row align-items-center gy-4">
-                <div class="col-md-8">
-                    <span class="badge badge-4d mb-3">Fale Conosco</span>
-                    <p class="fs-5 mb-0">
-                        Tem alguma dúvida sobre o estilo 4D, quer dar feedback das suas sessões de
-                        jogo em que conseguiu aplicar o estilo?
-                    </p>
-                </div>
-                <div class="col-md-4 d-flex justify-content-center">
-                    <div class="hero-logo">
-                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <polygon points="50,8 86,29 86,71 50,92 14,71 14,29" fill="#000000" stroke="#ffffff"
-                                stroke-width="8" stroke-linejoin="round" />
-                            <text x="50" y="62" fill="#ffffff" font-family="'Courier New', Courier, monospace"
-                                font-weight="900" font-size="32" text-anchor="middle">4D</text>
-                        </svg>
-                    </div>
-                </div>
-            </div>
+{% extends "base.html" %} {% block titulo %}Manual do Iniciante em 4D -
+Contato{% endblock %} {% block conteudo %}
+<section class="hero text-white py-5">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <div class="col-md-8">
+        <span class="badge badge-4d mb-3">Fale Conosco</span>
+        <p class="fs-5 mb-0">
+          Tem alguma dúvida sobre o estilo 4D, quer dar feedback das suas
+          sessões de jogo em que conseguiu aplicar o estilo?
+        </p>
+      </div>
+      <div class="col-md-4 d-flex justify-content-center">
+        <div class="hero-logo">
+          <svg
+            viewBox="0 0 100 100"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <polygon
+              points="50,8 86,29 86,71 50,92 14,71 14,29"
+              fill="#000000"
+              stroke="#ffffff"
+              stroke-width="8"
+              stroke-linejoin="round"
+            />
+            <text
+              x="50"
+              y="62"
+              fill="#ffffff"
+              font-family="'Courier New', Courier, monospace"
+              font-weight="900"
+              font-size="32"
+              text-anchor="middle"
+            >
+              4D
+            </text>
+          </svg>
         </div>
-    </section>
-
-
-    <main>
-        <section class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-7">
-                    <div class="border-bottom border-2 border-dark pb-2 mb-4">
-                        <h2 class="fw-bold text-uppercase">Envie sua mensagem</h2>
-                        <p class="mt-2">
-                            Escreva para a nossa equipe. Retornaremos sua mensagem o mais rápido
-                            possível!
-                        </p>
-                    </div>
-
-                    <div class="card p-4 h-auto">
-                        <!-- method="POST" envia os dados para a rota /contato do Flask -->
-                        <form id="formContato" method="POST" action="{{ url_for('contato') }}" novalidate>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Seu e-mail</label>
-                                <input type="email" class="form-control" id="email" name="email"
-                                    placeholder="nome@exemplo.com" required>
-                                <div class="invalid-feedback">Digite um e-mail válido.</div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="subject" class="form-label">Assunto</label>
-                                <input type="text" class="form-control" id="subject" name="subject"
-                                    placeholder="Ex: Dúvida sobre Cocriação, Relato de mesa" required>
-                                <div class="invalid-feedback">Conte pra gente o assunto da mensagem.</div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Mensagem</label>
-                                <textarea class="form-control" id="message" name="message" rows="5"
-                                    placeholder="Escreva os detalhes da sua mensagem aqui..." required></textarea>
-                                <div class="invalid-feedback">Escreva sua mensagem antes de enviar.</div>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary w-100">Enviar Mensagem</button>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="border-bottom border-2 border-dark pb-2 mb-4">
-                        <h2 class="fw-bold text-uppercase">Outros canais</h2>
-                        <p class="mt-2">
-                            Conecte-se com nossa comunidade ativa e encontre canais com sessões e
-                            discussões ao vivo:
-                        </p>
-                    </div>
-
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <div class="channel-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-                                    <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="fs-6 text-uppercase fw-bold mb-1">Comunidade no Discord</h4>
-                                <p class="mb-1">Servidor Oficial <strong>The RPG Crusade</strong></p>
-                                <a href="https://discord.gg/q4aff4vwR4" target="_blank" class="fw-bold">discord.gg/q4aff4vwR4</a>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="channel-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path
-                                        d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
-                                    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="fs-6 text-uppercase fw-bold mb-1">Canais do YouTube</h4>
-                                <p class="mb-1">Assista a discussões teóricas e práticas de mesas 4D:</p>
-                                <a href="https://www.youtube.com/@Better_With_Bacon" target="_blank" class="fw-bold d-block">
-                                    Better with Bacon (James Bacon)
-                                </a>
-                                <a href="https://www.youtube.com/@Tablerunner" target="_blank" class="fw-bold d-block">
-                                    Tablerunner Crispy (Chris Papworth)
-                                </a>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="channel-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                                    <circle cx="12" cy="7" r="4" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h4 class="fs-6 text-uppercase fw-bold mb-1">Contato com os Autores do Livro</h4>
-                                <p class="mb-1">Usuários para envio de mensagens diretas:</p>
-                                <p class="mb-0"><strong>Michael Melnick:</strong> DMHRelic (Discord)</p>
-                                <p class="mb-0"><strong>James Bacon:</strong> Bacon6126 (Discord)</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </main>
-    <!-- Aviso que aparece depois do envio. O Flask manda o "status"
-         (enviado, erro ou invalido) e o Jinja escolhe o texto. -->
-    {% if status %}
-    <div class="toast-container position-fixed top-50 start-50 translate-middle p-3">
-        <div id="toastEnvio" class="toast">
-            <div class="toast-header">
-                <strong class="me-auto">Manual 4D</strong>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
-            </div>
-            <div class="toast-body">
-                {% if status == "enviado" %}
-                Mensagem enviada com sucesso! Obrigado pelo contato.
-                {% elif status == "invalido" %}
-                Preencha todos os campos com um e-mail válido.
-                {% else %}
-                Não foi possível enviar agora. Tente novamente mais tarde.
-                {% endif %}
-            </div>
-        </div>
+      </div>
     </div>
-    {% endif %}
-{% endblock %}
+  </div>
+</section>
 
-{% block scripts %}
-    <script>
-        // Validação no navegador: só impede o envio se algum campo estiver errado.
-        // Se estiver tudo certo, o formulário segue para o Flask normalmente.
-        const formulario = document.getElementById('formContato');
-        formulario.addEventListener('submit', function (evento) {
-            if (formulario.checkValidity() === false) {
-                evento.preventDefault();
-                evento.stopPropagation();
-            }
-            formulario.classList.add('was-validated');
-        });
+<main>
+  <section class="container py-5">
+    <div class="row g-5">
+      <div class="col-lg-7">
+        <div class="border-bottom border-2 border-dark pb-2 mb-4">
+          <h2 class="fw-bold text-uppercase">Envie sua mensagem</h2>
+          <p class="mt-2">
+            Escreva para a nossa equipe. Retornaremos sua mensagem o mais rápido
+            possível!
+          </p>
+        </div>
 
-        // Se a página veio com um aviso (toast), mostra ele
-        const elementoToast = document.getElementById('toastEnvio');
-        if (elementoToast) {
-            bootstrap.Toast.getOrCreateInstance(elementoToast).show();
-        }
-    </script>
+        <div class="card p-4 h-auto">
+          <form
+            id="formContato"
+            method="POST"
+            action="{{ url_for('contato') }}"
+            novalidate
+          >
+            <div class="mb-3">
+              <label for="email" class="form-label">Seu e-mail</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                placeholder="nome@exemplo.com"
+                required
+              />
+              <div class="invalid-feedback">Digite um e-mail válido.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="subject" class="form-label">Assunto</label>
+              <input
+                type="text"
+                class="form-control"
+                id="subject"
+                name="subject"
+                placeholder="Ex: Dúvida sobre Cocriação, Relato de mesa"
+                required
+              />
+              <div class="invalid-feedback">
+                Conte pra gente o assunto da mensagem.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="message" class="form-label">Mensagem</label>
+              <textarea
+                class="form-control"
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Escreva os detalhes da sua mensagem aqui..."
+                required
+              ></textarea>
+              <div class="invalid-feedback">
+                Escreva sua mensagem antes de enviar.
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">
+              Enviar Mensagem
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="border-bottom border-2 border-dark pb-2 mb-4">
+          <h2 class="fw-bold text-uppercase">Outros canais</h2>
+          <p class="mt-2">
+            Conecte-se com nossa comunidade ativa e encontre canais com sessões
+            e discussões ao vivo:
+          </p>
+        </div>
+
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="channel-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="fs-6 text-uppercase fw-bold mb-1">
+                Comunidade no Discord
+              </h4>
+              <p class="mb-1">
+                Servidor Oficial <strong>The RPG Crusade</strong>
+              </p>
+              <a
+                href="https://discord.gg/q4aff4vwR4"
+                target="_blank"
+                class="fw-bold"
+                >discord.gg/q4aff4vwR4</a
+              >
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="channel-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"
+                />
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="fs-6 text-uppercase fw-bold mb-1">
+                Canais do YouTube
+              </h4>
+              <p class="mb-1">
+                Assista a discussões teóricas e práticas de mesas 4D:
+              </p>
+              <a
+                href="https://www.youtube.com/@Better_With_Bacon"
+                target="_blank"
+                class="fw-bold d-block"
+              >
+                Better with Bacon (James Bacon)
+              </a>
+              <a
+                href="https://www.youtube.com/@Tablerunner"
+                target="_blank"
+                class="fw-bold d-block"
+              >
+                Tablerunner Crispy (Chris Papworth)
+              </a>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="channel-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="fs-6 text-uppercase fw-bold mb-1">
+                Contato com os Autores do Livro
+              </h4>
+              <p class="mb-1">Usuários para envio de mensagens diretas:</p>
+              <p class="mb-0">
+                <strong>Michael Melnick:</strong> DMHRelic (Discord)
+              </p>
+              <p class="mb-0">
+                <strong>James Bacon:</strong> Bacon6126 (Discord)
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+{% if status %}
+<div
+  class="toast-container position-fixed top-50 start-50 translate-middle p-3"
+>
+  <div id="toastEnvio" class="toast">
+    <div class="toast-header">
+      <strong class="me-auto">Manual 4D</strong>
+      <button
+        type="button"
+        class="btn-close btn-close-white"
+        data-bs-dismiss="toast"
+      ></button>
+    </div>
+    <div class="toast-body">
+      {% if status == "enviado" %} Mensagem enviada com sucesso! Obrigado pelo
+      contato. {% elif status == "invalido" %} Preencha todos os campos com um
+      e-mail válido. {% else %} Não foi possível enviar agora. Tente novamente
+      mais tarde. {% endif %}
+    </div>
+  </div>
+</div>
+{% endif %} {% endblock %} {% block scripts %}
+<script>
+  const formulario = document.getElementById("formContato");
+  formulario.addEventListener("submit", function (evento) {
+    if (formulario.checkValidity() === false) {
+      evento.preventDefault();
+      evento.stopPropagation();
+    }
+    formulario.classList.add("was-validated");
+  });
+
+  const elementoToast = document.getElementById("toastEnvio");
+  if (elementoToast) {
+    bootstrap.Toast.getOrCreateInstance(elementoToast).show();
+  }
+</script>
 {% endblock %}
