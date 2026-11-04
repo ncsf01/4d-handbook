@@ -19,6 +19,7 @@ This is the third version of the project:
 - **Home** (`/`): introduction to the 4D style, a quote carousel and its three core ideas
 - **About** (`/sobre`): the origin of the style, the 5 practical pillars of the 4D player and the handbook's goals
 - **Contact** (`/contato`): community links (Discord and YouTube channels) and a contact form that saves each message to a MySQL database
+- **Messages** (`/mensagens`): a public board listing the messages sent through the contact form, newest first, with the sender's email partially hidden (`t***@gmail.com`)
 
 ## Architecture
 
@@ -42,7 +43,8 @@ Browser ──:5000──► web server (Flask)  ──:3306, private network─
 │   ├── base.html       # shared layout: navbar, content block and footer
 │   ├── index.html      # pages that extend base.html
 │   ├── about.html
-│   └── contato.html
+│   ├── contato.html
+│   └── mensagens.html
 └── static/
     ├── css/style.css
     └── img/capa.webp

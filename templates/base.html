@@ -42,6 +42,10 @@
                         <a class="nav-link {% if request.endpoint == 'contato' %}active{% endif %}"
                             href="{{ url_for('contato') }}">Contato</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.endpoint == 'mensagens' %}active{% endif %}"
+                            href="{{ url_for('mensagens') }}">Mural</a>
+                    </li>
                 </ul>
             </div>
         </div>
