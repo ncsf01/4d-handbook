@@ -41,7 +41,8 @@
                     </div>
 
                     <div class="card p-4 h-auto">
-                        <form id="formContato" novalidate>
+                        <!-- method="POST" envia os dados para a rota /contato do Flask -->
+                        <form id="formContato" method="POST" action="{{ url_for('contato') }}" novalidate>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Seu e-mail</label>
                                 <input type="email" class="form-control" id="email" name="email"
@@ -131,6 +132,9 @@
             </div>
         </section>
     </main>
+    <!-- Aviso que aparece depois do envio. O Flask manda o "status"
+         (enviado, erro ou invalido) e o Jinja escolhe o texto. -->
+    {% if status %}
     <div class="toast-container position-fixed top-50 start-50 translate-middle p-3">
         <div id="toastEnvio" class="toast">
             <div class="toast-header">
@@ -138,27 +142,36 @@
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"></button>
             </div>
             <div class="toast-body">
-                Mensagem enviada com sucesso! (É mentira! Formulário fictício da atividade da Fatec)
+                {% if status == "enviado" %}
+                Mensagem enviada com sucesso! Obrigado pelo contato.
+                {% elif status == "invalido" %}
+                Preencha todos os campos com um e-mail válido.
+                {% else %}
+                Não foi possível enviar agora. Tente novamente mais tarde.
+                {% endif %}
             </div>
         </div>
     </div>
+    {% endif %}
 {% endblock %}
 
 {% block scripts %}
     <script>
+        // Validação no navegador: só impede o envio se algum campo estiver errado.
+        // Se estiver tudo certo, o formulário segue para o Flask normalmente.
         const formulario = document.getElementById('formContato');
         formulario.addEventListener('submit', function (evento) {
-            evento.preventDefault();
             if (formulario.checkValidity() === false) {
+                evento.preventDefault();
                 evento.stopPropagation();
-                formulario.classList.add('was-validated');
-            } else {
-                const elementoToast = document.getElementById('toastEnvio');
-                const toastBootstrap = bootstrap.Toast.getOrCreateInstance(elementoToast);
-                toastBootstrap.show();
-                formulario.reset();
-                formulario.classList.remove('was-validated');
             }
+            formulario.classList.add('was-validated');
         });
+
+        // Se a página veio com um aviso (toast), mostra ele
+        const elementoToast = document.getElementById('toastEnvio');
+        if (elementoToast) {
+            bootstrap.Toast.getOrCreateInstance(elementoToast).show();
+        }
     </script>
 {% endblock %}
