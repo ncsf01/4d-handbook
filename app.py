@@ -19,6 +19,4 @@ def contato():
 
 
 if __name__ == "__main__":
-    # host="0.0.0.0" faz o Flask aceitar conexões de fora da máquina
-    # (sem isso, só a própria instância consegue abrir o site).
     app.run(host="0.0.0.0", port=5000)
