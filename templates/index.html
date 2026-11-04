@@ -1,196 +1,288 @@
-{% extends "base.html" %}
-
-{% block titulo %}Manual do Iniciante em 4D - Home{% endblock %}
-
-{% block conteudo %}
-    <section class="hero text-white py-5">
-        <div class="container">
-            <div class="row align-items-center gy-4">
-                <div class="col-md-7">
-                    <span class="badge badge-4d mb-3">Estilo de Jogo 4D</span>
-                    <p class="fs-6 mb-4">
-                        Aprenda a entrar e se manter no personagem pelo maior tempo e com a maior
-                        frequência possíveis. Uma abordagem holística para criar momentos memoráveis
-                        no seu RPG.
-                    </p>
-                    <a href="{{ url_for('sobre') }}" class="btn btn-primary btn-lg">Conheça o Estilo 4D</a>
-                </div>
-                <div class="col-md-5 d-flex justify-content-center">
-                    <div class="hero-logo">
-                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <polygon points="50,8 86,29 86,71 50,92 14,71 14,29" fill="#000000" stroke="#ffffff"
-                                stroke-width="8" stroke-linejoin="round" />
-                            <text x="50" y="62" fill="#ffffff" font-family="'Courier New', Courier, monospace"
-                                font-weight="900" font-size="32" text-anchor="middle">4D</text>
-                        </svg>
-                    </div>
-                </div>
-            </div>
+{% extends "base.html" %} {% block titulo %} - Home{% endblock %} {% block
+conteudo %}
+<section class="hero text-white py-5">
+  <div class="container">
+    <div class="row align-items-center gy-4">
+      <div class="col-md-7">
+        <span class="badge badge-4d mb-3">Estilo de Jogo 4D</span>
+        <p class="fs-6 mb-4">
+          Aprenda a entrar e se manter no personagem pelo maior tempo e com a
+          maior frequência possíveis. Uma abordagem holística para criar
+          momentos memoráveis no seu RPG.
+        </p>
+        <a href="{{ url_for('sobre') }}" class="btn btn-primary btn-lg"
+          >Conheça o Estilo 4D</a
+        >
+      </div>
+      <div class="col-md-5 d-flex justify-content-center">
+        <div class="hero-logo">
+          <svg
+            viewBox="0 0 100 100"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <polygon
+              points="50,8 86,29 86,71 50,92 14,71 14,29"
+              fill="#000000"
+              stroke="#ffffff"
+              stroke-width="8"
+              stroke-linejoin="round"
+            />
+            <text
+              x="50"
+              y="62"
+              fill="#ffffff"
+              font-family="'Courier New', Courier, monospace"
+              font-weight="900"
+              font-size="32"
+              text-anchor="middle"
+            >
+              4D
+            </text>
+          </svg>
         </div>
-    </section>
-
-    <main>
-        <section class="container pt-5 pb-4">
-            <div id="carrosselHome" class="carousel carousel-4d slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carrosselHome" data-bs-slide-to="0"
-                        class="active"></button>
-                    <button type="button" data-bs-target="#carrosselHome" data-bs-slide-to="1"></button>
-                </div>
-
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="container p-4">
-                            <div class="row g-3 align-items-center justify-content-center">
-                                <div class="col-md-6">
-                                    <div>
-                                        <blockquote class="fst-italic fs-5 mb-0 text-center">
-                                            "O foco na interpretação de personagens é para todos?
-                                            Na minha experiência, não; no entanto, é exatamente o que
-                                            busco, e não estou sozinho... Nós, que defendemos o
-                                            estilo de jogo 4D, sustentamos que a interpretação de
-                                            papéis satisfaz melhor a premissa dos RPGs."
-                                        </blockquote>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4">
-                                    <div class="text-center">
-                                        <cite class="fst-normal">- Chris Papworth,<br>Novembro de 2025</cite>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="carousel-item">
-                        <div class="container p-4">
-                            <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 w-100">
-                                <img src="{{ url_for('static', filename='img/capa.webp') }}" alt="Capa do livro The Beginner's 4D Handbook"
-                                    class="img-fluid" style="max-height: 220px;">
-                                <div class="text-center">
-                                    <h3 class="fw-bold">O Manual Completo</h3>
-                                    <p>
-                                        Quer se aprofundar no estilo 4D? <br>
-                                        Confira a versão completa em livro, <br>
-                                        disponível na DriveThruRPG.
-                                    </p>
-                                    <button type="button" class="btn btn-outline-light"
-                                        data-bs-toggle="modal" data-bs-target="#modalLivro">
-                                        Ver detalhes do livro
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#carrosselHome"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                    <span><</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carrosselHome"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                    <span>></span>
-                </button>
-            </div>
-        </section>
-
-        <section class="container pt-4 pb-5">
-            <div class="border-bottom border-2 border-dark pb-2 mb-4">
-                <h2 class="fw-bold text-uppercase">O que é o RPG em 4D?</h2>
-                <p class="mt-2">
-                    O estilo 4D é o compromisso de entrar e se manter no personagem o máximo que
-                    der. Essa dedicação vai muito além da fala em primeira pessoa; trata-se de uma
-                    postura que elimina distrações para que você realmente possa jogar RPG.
-                </p>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card p-2">
-                        <div class="card-body">
-                            <div class="card-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path
-                                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                                </svg>
-                            </div>
-                            <h3 class="card-title">Alta Confiança</h3>
-                            <p class="card-text">
-                                Todos agem de boa-fé, eliminando trapaças e focando proativamente nos
-                                objetivos e motivações de seus personagens sem medo de julgamentos ou
-                                otimizações alheias.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card p-2">
-                        <div class="card-body">
-                            <div class="card-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                                </svg>
-                            </div>
-                            <h3 class="card-title">Foco no Personagem</h3>
-                            <p class="card-text">
-                                Limitação consciente de conversas paralelas, interações "meta-game" e
-                                celular na mesa. O jogo flui sem as pausas constantes para consultar
-                                regras ou tirar o foco.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card p-2">
-                        <div class="card-body">
-                            <div class="card-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <polygon points="5 4 15 12 5 20 5 4" />
-                                    <polygon points="14 4 24 12 14 20 14 4" />
-                                </svg>
-                            </div>
-                            <h3 class="card-title">Turnos Dinâmicos</h3>
-                            <p class="card-text">
-                                A alternância de turnos curtos (focando em 2 a 3 frases) agiliza a
-                                velocidade de jogo e mantém todos atentos, diminuindo o tempo de
-                                espera do grupo.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <div class="modal fade" id="modalLivro" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title w-100 text-center">The Beginner's 4D Handbook</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <img src="{{ url_for('static', filename='img/capa.webp') }}" alt="Capa do livro" class="img-fluid mb-3" style="max-height: 260px;">
-                    <p><strong>A Roleplay Style Primer</strong>, <br> por Mike Melnick e James Bacon.</p>
-                    <p class="mb-0">
-                        A versão em livro reúne, de forma organizada e pesquisável, tudo o que este
-                        site resume: os 5 pilares práticos, a origem do estilo 4D e exemplos de mesa.
-                    </p>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <a href="https://www.drivethrurpg.com/en/product/549599/the-beginner-s-4d-handbook?language=en"
-                        target="_blank" class="btn btn-primary">Ver no DriveThruRPG</a>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
+</section>
+
+<main>
+  <section class="container pt-5 pb-4">
+    <div
+      id="carrosselHome"
+      class="carousel carousel-4d slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-indicators">
+        <button
+          type="button"
+          data-bs-target="#carrosselHome"
+          data-bs-slide-to="0"
+          class="active"
+        ></button>
+        <button
+          type="button"
+          data-bs-target="#carrosselHome"
+          data-bs-slide-to="1"
+        ></button>
+      </div>
+
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="container p-4">
+            <div class="row g-3 align-items-center justify-content-center">
+              <div class="col-md-6">
+                <div>
+                  <blockquote class="fst-italic fs-5 mb-0 text-center">
+                    "O foco na interpretação de personagens é para todos? Na
+                    minha experiência, não; no entanto, é exatamente o que
+                    busco, e não estou sozinho... Nós, que defendemos o estilo
+                    de jogo 4D, sustentamos que a interpretação de papéis
+                    satisfaz melhor a premissa dos RPGs."
+                  </blockquote>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4">
+                <div class="text-center">
+                  <cite class="fst-normal"
+                    >- Chris Papworth,<br />Novembro de 2025</cite
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="container p-4">
+            <div
+              class="d-flex flex-wrap justify-content-center align-items-center gap-4 w-100"
+            >
+              <img
+                src="{{ url_for('static', filename='img/capa.webp') }}"
+                alt="Capa do livro The Beginner's 4D Handbook"
+                class="img-fluid"
+                style="max-height: 220px"
+              />
+              <div class="text-center">
+                <h3 class="fw-bold">O Manual Completo</h3>
+                <p>
+                  Quer se aprofundar no estilo 4D? <br />
+                  Confira a versão completa em livro, <br />
+                  disponível na DriveThruRPG.
+                </p>
+                <button
+                  type="button"
+                  class="btn btn-outline-light"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalLivro"
+                >
+                  Ver detalhes do livro
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="carousel-control-prev"
+        type="button"
+        data-bs-target="#carrosselHome"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon"></span>
+        <span><</span>
+      </button>
+      <button
+        class="carousel-control-next"
+        type="button"
+        data-bs-target="#carrosselHome"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon"></span>
+        <span>></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="container pt-4 pb-5">
+    <div class="border-bottom border-2 border-dark pb-2 mb-4">
+      <h2 class="fw-bold text-uppercase">O que é o RPG em 4D?</h2>
+      <p class="mt-2">
+        O estilo 4D é o compromisso de entrar e se manter no personagem o máximo
+        que der. Essa dedicação vai muito além da fala em primeira pessoa;
+        trata-se de uma postura que elimina distrações para que você realmente
+        possa jogar RPG.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card p-2">
+          <div class="card-body">
+            <div class="card-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"
+                />
+              </svg>
+            </div>
+            <h3 class="card-title">Alta Confiança</h3>
+            <p class="card-text">
+              Todos agem de boa-fé, eliminando trapaças e focando proativamente
+              nos objetivos e motivações de seus personagens sem medo de
+              julgamentos ou otimizações alheias.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card p-2">
+          <div class="card-body">
+            <div class="card-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
+              </svg>
+            </div>
+            <h3 class="card-title">Foco no Personagem</h3>
+            <p class="card-text">
+              Limitação consciente de conversas paralelas, interações
+              "meta-game" e celular na mesa. O jogo flui sem as pausas
+              constantes para consultar regras ou tirar o foco.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card p-2">
+          <div class="card-body">
+            <div class="card-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polygon points="5 4 15 12 5 20 5 4" />
+                <polygon points="14 4 24 12 14 20 14 4" />
+              </svg>
+            </div>
+            <h3 class="card-title">Turnos Dinâmicos</h3>
+            <p class="card-text">
+              A alternância de turnos curtos (focando em 2 a 3 frases) agiliza a
+              velocidade de jogo e mantém todos atentos, diminuindo o tempo de
+              espera do grupo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div class="modal fade" id="modalLivro" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title w-100 text-center">
+          The Beginner's 4D Handbook
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+      <div class="modal-body text-center">
+        <img
+          src="{{ url_for('static', filename='img/capa.webp') }}"
+          alt="Capa do livro"
+          class="img-fluid mb-3"
+          style="max-height: 260px"
+        />
+        <p>
+          <strong>A Roleplay Style Primer</strong>, <br />
+          por Mike Melnick e James Bacon.
+        </p>
+        <p class="mb-0">
+          A versão em livro reúne, de forma organizada e pesquisável, tudo o que
+          este site resume: os 5 pilares práticos, a origem do estilo 4D e
+          exemplos de mesa.
+        </p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Fechar
+        </button>
+        <a
+          href="https://www.drivethrurpg.com/en/product/549599/the-beginner-s-4d-handbook?language=en"
+          target="_blank"
+          class="btn btn-primary"
+          >Ver no DriveThruRPG</a
+        >
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

@@ -1,48 +1,51 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block titulo %} - Mensagens{% endblock %} {% block
+conteudo %}
+<section class="hero text-white py-5">
+  <div class="container">
+    <span class="badge badge-4d mb-3">Mural de Mensagens</span>
+    <p class="fs-5 mb-0">Mensagens recebidas pelo formulário de contato.</p>
+  </div>
+</section>
 
-{% block titulo %}Manual do Iniciante em 4D - Mensagens{% endblock %}
-
-{% block conteudo %}
-    <section class="hero text-white py-5">
-        <div class="container">
-            <span class="badge badge-4d mb-3">Mural de Mensagens</span>
-            <p class="fs-5 mb-0">Mensagens recebidas pelo formulário de contato.</p>
-        </div>
-    </section>
-
-    <main>
-        <section class="container py-5">
-            {% if contatos is none %}
-                <div class="alert alert-danger">Não foi possível acessar o banco de dados agora.</div>
-            {% elif not contatos %}
-                <p>Nenhuma mensagem recebida ainda.</p>
-            {% else %}
-                <p>{{ contatos|length }} mensagem(ns), da mais recente para a mais antiga.</p>
-                <div class="table-responsive">
-                    <table class="table table-bordered align-middle">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Data (UTC)</th>
-                                <th>E-mail</th>
-                                <th>Assunto</th>
-                                <th>Mensagem</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for contato in contatos %}
-                                <tr>
-                                    <td>{{ contato.id }}</td>
-                                    <td class="text-nowrap">{{ contato.criado_em.strftime('%d/%m/%Y %H:%M') }}</td>
-                                    <td>{{ contato.email }}</td>
-                                    <td>{{ contato.assunto }}</td>
-                                    <td>{{ contato.mensagem }}</td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            {% endif %}
-        </section>
-    </main>
+<main>
+  <section class="container py-5">
+    {% if contatos is none %}
+    <div class="alert alert-danger">
+      Não foi possível acessar o banco de dados agora.
+    </div>
+    {% elif not contatos %}
+    <p>Nenhuma mensagem recebida ainda.</p>
+    {% else %}
+    <p>
+      {{ contatos|length }} mensagem(ns), da mais recente para a mais antiga.
+    </p>
+    <div class="table-responsive">
+      <table class="table table-bordered align-middle">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Data (UTC)</th>
+            <th>E-mail</th>
+            <th>Assunto</th>
+            <th>Mensagem</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for contato in contatos %}
+          <tr>
+            <td>{{ contato.id }}</td>
+            <td class="text-nowrap">
+              {{ contato.criado_em.strftime('%d/%m/%Y %H:%M') }}
+            </td>
+            <td>{{ contato.email }}</td>
+            <td>{{ contato.assunto }}</td>
+            <td>{{ contato.mensagem }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endif %}
+  </section>
+</main>
 {% endblock %}
